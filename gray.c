@@ -9,8 +9,6 @@
 extern "C" {            // only here so it is also used in the created single header file
 #endif // __cplusplus
 
-#define gr_abs(n)  ((n) < 0 ? -(n) : (n))
-#define gr_sign(n) ((n) < 0 ? -1 : 1)
 #define gr_sq(n)   ((n) * (n))
 #define gr_not0f(n) ((n) == 0 ? 0.000000000001 : (n))
 
@@ -168,7 +166,7 @@ static void gr_step_method_eades(gr_RenderContext *ctx,
     for (size_t n = 0; n < ctx->graph->n_verticies; n += 1) {
         gr_Vec2 force = gr_vec2zero();
         for (size_t i = 0; i < ctx->graph->n_verticies; i += 1) {
-            // if `n == 1` we are already here, so might as well use it for
+            // if `n == i` we are already here, so might as well use it for
             // gravity calculations
             const gr_Vec2 other = (n == i) ? eades->grav_cen : ctx->vertex_pos[i];
             const float d_x     = other.x - ctx->vertex_pos[n].x;
@@ -195,7 +193,7 @@ static void gr_step_method_fruchtman_and_reingold(gr_RenderContext *ctx,
     for (size_t n = 0; n < ctx->graph->n_verticies; n += 1) {
         gr_Vec2 force = gr_vec2zero();
         for (size_t i = 0; i < ctx->graph->n_verticies; i += 1) {
-            // if `n == 1` we are already here, so might as well use it for
+            // if `n == i` we are already here, so might as well use it for
             // gravity calculations
             const gr_Vec2 other = (n == i) ? fag->grav_cen : ctx->vertex_pos[i];
             const float d_x     = other.x - ctx->vertex_pos[n].x;
