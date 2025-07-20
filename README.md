@@ -26,6 +26,7 @@ when compiling nob.)
 
 ### Dependencies
 For **gray**: None
+
 For examples:
 - [raylib](https://github.com/raysan5/raylib)
 
