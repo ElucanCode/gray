@@ -24,6 +24,11 @@ $ ./nob help
 (The used compiler and compile flags can be specified by defining `CC` and `CF`
 when compiling nob.)
 
+### Dependencies
+For **gray**: None
+For examples:
+- [raylib](https://github.com/raysan5/raylib)
+
 ## Usage
 The simplest usage example looks something like this:
 ```c
