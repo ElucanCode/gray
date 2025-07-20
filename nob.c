@@ -13,9 +13,6 @@
 #ifndef CF
 #   define CF "-Wall", "-Wextra", "-Wpedantic", "-ggdb"
 #endif // CF
-#ifndef LF
-#   define LF "-lm"
-#endif // LF
 
 enum SubCommand {
     Help,

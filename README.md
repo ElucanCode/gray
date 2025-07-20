@@ -1,8 +1,10 @@
 # gray
-The name gray comes from "graph layout" as it is a library to compute vertex
+The name **gray** comes from "graph layout" as it is a library to compute vertex
 positions for graph drawing / visualization. It does not come with its own
-backend for rendering. Take a look at the examples folder for simple rendering
-examples.
+backend for rendering. Take a look at the examples directory for this demo using
+[raylib](https://github.com/raysan5/raylib):
+
+![Raylib demo](https://raw.githubusercontent.com/ElucanCode/gray/refs/heads/main/demo.gif)
 
 Algorithms are taken from the wonderful [Handbook of Graph Drawing and Visualization](https://web.archive.org/web/20130815181243/http://cs.brown.edu/~rt/gdhandbook/).
 Currently implemented algorithms:
@@ -11,30 +13,18 @@ Currently implemented algorithms:
 - [ ] more to come :)
 
 ## Building
+**gray** uses [nob.h](https://github.com/tsoding/nob.h) for building:
 ```shell
-$ cc -o nob nob.c
-$ ./nob
+$ cc -o nob nob.c && ./nob
 ```
-
-By default nob will use `cc` to compile everything, if want to use a different
-compiler build nob like this:
-```shell
-$ cc -o nob -DCC='"clang"' nob.c
-```
-Similarly you can pass compiler and linker flags using `CF` and `LF`
-respectively. (These defines might be discarded when you change nob.c and do not
-manually recompile it.)
-
 For building options run:
 ```shell
 $ ./nob help
 ```
+(The used compiler and compile flags can be specified by defining `CC` and `CF`
+when compiling nob.)
 
 ## Usage
-_Note_: If any of the functions or types supplied by **gray** create a collision
-with one of your definitions simply define `GR_REQUIRE_PREFIX` before including
-`gray.h`.
-
 The simplest usage example looks something like this:
 ```c
 #include "gray.h"
@@ -54,3 +44,7 @@ void use_gray(const size_t num_vertecies) {
     graph_destroy(&g);
 }
 ```
+
+_Note_: If any of the functions or types supplied by **gray** create a collision
+with one of your definitions simply define `GR_REQUIRE_PREFIX` before including
+`gray.h`.
